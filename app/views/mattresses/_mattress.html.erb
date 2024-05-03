@@ -1,0 +1,43 @@
+<div id="<%= dom_id mattress %>">
+  <p>
+    <strong>Company:</strong>
+    <%= mattress.company %>
+  </p>
+
+  <p>
+    <strong>Confort:</strong>
+    <%= mattress.confort %>
+  </p>
+
+  <p>
+    <strong>Size:</strong>
+    <%= mattress.size %>
+  </p>
+
+  <p>
+    <strong>Name:</strong>
+    <%= mattress.name %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= mattress.description %>
+  </p>
+
+  <p>
+    <strong>Images:</strong>
+    <% if mattress.images.attached? %>
+      <% if @is_index %>
+        <%= image_tag(mattress.images.first, class: "preview-image") %>
+      <% else %>
+        <% mattress.images.each do |image| %>
+          <%= image_tag(image, class: "preview-image") %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <em>No images attached.</em>
+    <% end %>
+  </p>
+
+
+</div>
